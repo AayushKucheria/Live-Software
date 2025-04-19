@@ -23,7 +23,7 @@ const MethodologySlideTemplate = ({ currentSubsection = 'demo', updateCurrentSub
             </div>
             
             <p className="text-2xl hand-drawn-text text-center mt-4 text-emerald-700">
-              Let's try growing an interface
+              Let's try interacting with a model
             </p>
           </div>
         </div>

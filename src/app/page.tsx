@@ -11,11 +11,11 @@ import ImplementationSlideTemplate from "@/components/live_software_slide";
 // Define the structure of our presentation with sections and subsections
 const presentationStructure = {
   title: { subsections: ['main'] },
-  concept: { subsections: ['overview'] },
+  concept: { subsections: ['informal_formal', 'extracting_insights', 'modifying_formalisms'] },
   live_software: { subsections: ['how_it_works'] },
   demo: { subsections: ['demo'] },
   summary: { subsections: ['key_points'] },
-  conclusion: { subsections: ['near_term', 'mid_term', 'long_term'] }
+  conclusion: { subsections: ['immediate', 'longterm'] }
 };
 
 // Type for our slide sections
@@ -28,7 +28,7 @@ export default function Home() {
   
   // Define the slide order for navigation (main sections)
   const slideOrder = useMemo<SlideSection[]>(() => 
-    ['title', 'concept', 'live_software', 'demo', 'summary', 'conclusion']
+    ['title', 'live_software', 'concept', 'demo', 'summary', 'conclusion']
   , []);
   
   // Function to navigate to the next slide or subsection
