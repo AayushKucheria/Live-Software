@@ -13,15 +13,19 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
   // Map subsection IDs to slide indices
   const subsectionMap = useMemo(() => ({
     'informal_formal': 0,
-    'extracting_insights': 1,
-    'modifying_formalisms': 2
+    'composition': 1
+    // Temporarily hiding these slides
+    // 'extracting_insights': 1,
+    // 'modifying_formalisms': 2
   }), []);
   
   // Reverse map to get subsection from index
   const indexToSubsectionMap = useMemo(() => ({
     0: 'informal_formal',
-    1: 'extracting_insights',
-    2: 'modifying_formalisms'
+    1: 'composition'
+    // Temporarily hiding these slides
+    // 1: 'extracting_insights',
+    // 2: 'modifying_formalisms'
   }), []);
   
   // Set the current slide based on the subsection prop
@@ -57,7 +61,7 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
           </p>
           
           <div className="flex justify-center mb-8">
-            <div className="w-full max-w-xl relative hand-drawn-container p-5">
+            <div className="w-full max-w-2xl relative hand-drawn-container p-5">
               <div className="grid grid-cols-3 gap-4">
                 <div className="flex flex-col items-center">
                   <div className="hand-drawn-circle w-16 h-16 flex items-center justify-center bg-blue-50">
@@ -127,7 +131,124 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
         </div>
       )
     },
-    // Extracting Insights slide
+    // Composition slide
+    {
+      title: "Affordances Of Live Theory (Composition)",
+      content: (
+        <div>
+          <h2 className="text-2xl font-bold hand-drawn-text mb-6">Affordances Of Live Theory (Composition)</h2>
+          
+          <p className="text-lg hand-drawn-text mb-6">
+            Live theory enables fluid composition across multiple levels, 
+            from modeller-to-modeller collaboration to integrating models into applications.
+          </p>
+          
+          <div className="flex justify-center mb-8">
+            <div className="w-full max-w-4xl">
+              <div className="grid grid-cols-1 gap-8">
+                {/* Modeller to modeller section */}
+                <div className="hand-drawn-box p-5 bg-blue-50">
+                  <h3 className="text-xl font-semibold hand-drawn-text mb-4 text-center">Modeller to modeller</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div className="hand-drawn-container p-4 bg-white">
+                      <div className="flex items-center mb-3">
+                        <div className="hand-drawn-circle w-10 h-10 flex items-center justify-center mr-3 bg-purple-50">
+                          <span className="text-sm">👤A</span>
+                        </div>
+                        <div className="hand-drawn-box p-2 flex-1 bg-purple-50">
+                          <p className="hand-drawn-text text-sm">Domain Expertise</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="hand-drawn-circle w-10 h-10 flex items-center justify-center mr-3 bg-green-50">
+                          <span className="text-sm">👤B</span>
+                        </div>
+                        <div className="hand-drawn-box p-2 flex-1 bg-green-50">
+                          <p className="hand-drawn-text text-sm">Method Expertise</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col justify-center">
+                      <div className="hand-drawn-box p-3 bg-white mb-4">
+                        <p className="hand-drawn-text text-sm text-center">Shared live interface</p>
+                      </div>
+                      
+                      <ul className="space-y-2">
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Real-time collaboration</p>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Transparent modification</p>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Skill complementarity</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Model(s) to Application section */}
+                <div className="hand-drawn-box p-5 bg-amber-50">
+                  <h3 className="text-xl font-semibold hand-drawn-text mb-4 text-center">Model(s) to Application</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div className="hand-drawn-container p-4 bg-white">
+                      <div className="flex flex-col space-y-3">
+                        <div className="hand-drawn-box p-2 bg-blue-50">
+                          <p className="hand-drawn-text text-sm text-center">Model A</p>
+                        </div>
+                        <div className="hand-drawn-box p-2 bg-green-50">
+                          <p className="hand-drawn-text text-sm text-center">Model B</p>
+                        </div>
+                        <div className="hand-drawn-box p-2 bg-purple-50">
+                          <p className="hand-drawn-text text-sm text-center">Model C</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col justify-center">
+                      <div className="hand-drawn-box p-3 bg-white mb-4">
+                        <p className="hand-drawn-text text-sm text-center">Application context</p>
+                      </div>
+                      
+                      <ul className="space-y-2">
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Heterogeneous integration</p>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Context-sensitive binding</p>
+                        </li>
+                        <li className="flex items-center">
+                          <span className="text-green-600 mr-2">✓</span>
+                          <p className="hand-drawn-text text-sm">Tailored reproduction</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="hand-drawn-box p-4 bg-blue-50 max-w-2xl mx-auto">
+            <p className="hand-drawn-text text-center">
+              "Live theory prioritizes composition over standardization,
+              enabling flexible integration across diverse contexts"
+            </p>
+          </div>
+        </div>
+      )
+    },
+    // Extracting Insights slide (temporarily hidden but kept in code)
     {
       title: "Extracting Contextual Insights",
       content: (
@@ -140,9 +261,9 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
           </p>
           
           <div className="flex justify-center mb-8">
-            <div className="hand-drawn-box p-5 bg-blue-50 w-full max-w-2xl">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-full md:w-1/2">
+            <div className="hand-drawn-box p-5 bg-blue-50 w-full max-w-4xl">
+              <div className="flex flex-col md:flex-row lg:flex-row items-center gap-6">
+                <div className="w-full md:w-1/2 lg:w-1/2">
                   <div className="mb-4">
                     <div className="flex items-start mb-2">
                       <div className="hand-drawn-circle w-8 h-8 flex items-center justify-center mr-2 flex-shrink-0 bg-white">
@@ -205,7 +326,7 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
         </div>
       )
     },
-    // Modifying Formalisms slide
+    // Modifying Formalisms slide (temporarily hidden but kept in code)
     {
       title: "Modifying Formalisms",
       content: (
@@ -218,8 +339,8 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
           </p>
           
           <div className="flex justify-center mb-8">
-            <div className="w-full max-w-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="w-full max-w-4xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 <div className="hand-drawn-box p-4 bg-purple-50 flex flex-col">
                   <h3 className="text-lg font-semibold hand-drawn-text mb-3 text-center">Static Formalism</h3>
                   
@@ -248,8 +369,8 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
                     </div>
                     <p className="hand-drawn-text text-sm">Requires complete redesign to change</p>
                   </div>
-            </div>
-            
+                </div>
+                
                 <div className="hand-drawn-box p-4 bg-green-50 flex flex-col">
                   <h3 className="text-lg font-semibold hand-drawn-text mb-3 text-center">Live Formalism</h3>
                   
@@ -273,8 +394,8 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
                         <span className="text-xs">✏️</span>
                       </div>
                     </div>
-            </div>
-            
+                  </div>
+                  
                   <div className="text-center">
                     <div className="hand-drawn-box inline-block px-3 py-1 mb-2 bg-green-100">
                       <p className="hand-drawn-text text-sm">Fluid adaptation</p>
@@ -286,7 +407,7 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
             </div>
           </div>
           
-          <div className="hand-drawn-box p-4 bg-blue-50 max-w-xl mx-auto">
+          <div className="hand-drawn-box p-4 bg-blue-50 max-w-2xl mx-auto">
             <p className="hand-drawn-text text-center">
               "Live interfaces allow formalisms to be constructed, modified, and grown
               through continuous engagement with human context"
@@ -298,7 +419,7 @@ const ConceptSlideTemplate = ({ currentSubsection = 'informal_formal', updateCur
   ];
   
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <div className="mb-4">
         <div className="flex justify-between items-center mb-3">
           <div className="text-sm text-gray-500">

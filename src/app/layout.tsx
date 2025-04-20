@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { StrictMode } from "react";
-import "./globals.css";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { StrictMode } from 'react';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Live Software - Growing Interfaces",
-  description: "Live Software: Composable, Human-Centered, Adaptive Growing Interfaces",
+  title: 'Live Systems Models',
+  description: 'A Platform for Fluidly Composing, Sharing, and Enriching Causal Models of World Systems',
   icons: {
     icon: [],
     apple: [],
@@ -35,7 +37,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <StrictMode>
-          {children}
+          <ThemeProvider>
+            <div className="relative">
+              <ThemeToggle />
+              {children}
+            </div>
+          </ThemeProvider>
         </StrictMode>
       </body>
     </html>

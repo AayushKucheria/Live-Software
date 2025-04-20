@@ -5,7 +5,7 @@ const ImplementationSlideTemplate = () => {
     <div className="max-w-4xl mx-auto">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="p-6">
-          <h2 className="text-2xl font-bold hand-drawn-text mb-6">Live Software: Implementing the Live Interface Pattern</h2>
+          <h2 className="text-2xl font-bold hand-drawn-text mb-6">Live Theory: Implementing a Live Interface Pattern</h2>
           
           <div className="flex justify-center mb-8">
             <div className="w-full max-w-2xl h-80 relative overflow-hidden hand-drawn-container">

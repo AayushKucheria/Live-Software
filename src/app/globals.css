@@ -3,20 +3,205 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark mode colors (default) */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card-bg: #1a1a1a;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #27272a;
+  --border: #333333;
+  --ring: #3b82f6;
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  
+  /* Hand-drawn colors for dark mode */
+  --blue-50: #1e3a8a;
+  --blue-100: #1e40af;
+  --green-50: #065f46;
+  --green-100: #047857;
+  --amber-50: #78350f;
+  --amber-100: #92400e;
+  --purple-50: #4c1d95;
+  --red-50: #7f1d1d;
+  
+  /* Text colors */
+  --blue-text: #bfdbfe;
+  --green-text: #a7f3d0;
+  --amber-text: #fde68a;
+  --purple-text: #e9d5ff;
+  --red-text: #fecaca;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.light-mode {
+  /* Light mode colors - improved contrast */
+  --background: #f8f9fc;
+  --foreground: #111827; /* Darker text for better contrast */
+  --card-bg: #ffffff;
+  --primary: #4338ca;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --border: #d1d5db; /* Darker border */
+  --ring: #3b82f6;
+  --box-shadow-color: rgba(0, 0, 0, 0.2); /* Increased shadow opacity */
+  
+  /* Hand-drawn colors for light mode - better contrast */
+  --blue-50: #dbeafe;
+  --blue-100: #bfdbfe;
+  --green-50: #d1fae5;
+  --green-100: #a7f3d0;
+  --amber-50: #fef3c7;
+  --amber-100: #fde68a;
+  --purple-50: #f5f3ff;
+  --red-50: #fee2e2;
+  
+  /* Text colors with better contrast for light mode */
+  --blue-text: #1e3a8a; /* Darker blue */
+  --green-text: #065f46; /* Darker green */
+  --amber-text: #78350f; /* Darker amber */
+  --purple-text: #4c1d95; /* Darker purple */
+  --red-text: #7f1d1d;   /* Darker red */
+}
+
+/* Additional contrast improvements for light mode */
+.light-mode .hand-drawn-text {
+  color: #111827; /* Ensure all hand-drawn text is dark enough */
+}
+
+.light-mode .hand-drawn-box,
+.light-mode .hand-drawn-circle,
+.light-mode .hand-drawn-container {
+  border-color: #374151; /* Darker border for hand-drawn elements */
+}
+
+.light-mode .hand-drawn-box::before {
+  border-color: #4b5563; /* Darker border for the decorative outer border */
+}
+
+/* Style adjustments for color backgrounds in light mode */
+.light-mode .bg-blue-50 {
+  border: 1px solid #1e3a8a;
+}
+
+.light-mode .bg-green-50 {
+  border: 1px solid #065f46;
+}
+
+.light-mode .bg-amber-50 {
+  border: 1px solid #78350f;
+}
+
+.light-mode .bg-purple-50 {
+  border: 1px solid #4c1d95;
+}
+
+.light-mode .bg-red-50 {
+  border: 1px solid #7f1d1d;
+}
+
+/* Button styling for better visibility in light mode */
+.light-mode button {
+  border: 1px solid #d1d5db;
+}
+
+.light-mode .theme-toggle-btn {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Color classes for background */
+.bg-blue-50 {
+  background-color: var(--blue-50);
+  color: var(--blue-text);
+}
+
+.bg-blue-100 {
+  background-color: var(--blue-100);
+  color: var(--blue-text);
+}
+
+.bg-green-50 {
+  background-color: var(--green-50);
+  color: var(--green-text);
+}
+
+.bg-green-100 {
+  background-color: var(--green-100);
+  color: var(--green-text);
+}
+
+.bg-amber-50 {
+  background-color: var(--amber-50);
+  color: var(--amber-text);
+}
+
+.bg-amber-100 {
+  background-color: var(--amber-100);
+  color: var(--amber-text);
+}
+
+.bg-purple-50 {
+  background-color: var(--purple-50);
+  color: var(--purple-text);
+}
+
+.bg-red-50 {
+  background-color: var(--red-50);
+  color: var(--red-text);
+}
+
+/* Animations for interactive elements */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.hand-drawn-box:hover, .hand-drawn-tag:hover {
+  animation: gentle-bounce 1s ease infinite;
+}
+
+.bg-white {
+  background-color: var(--card-bg);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px var(--box-shadow-color);
+}
+
+/* Add default white background classes for compatibility with Tailwind classes not using variables */
+.bg-gray-50, .bg-gray-100, .bg-gray-200 {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
+
+.text-gray-500, .text-gray-600, .text-gray-700 {
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.text-gray-400 {
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
+/* Make sure theme toggle button has good contrast */
+.theme-toggle-btn {
+  background-color: var(--secondary);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+/* Add these rules at the beginning to apply theme colors to all elements */
+html {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
+  min-height: 100vh;
+  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -25,14 +210,25 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   line-height: 1.2;
   letter-spacing: 0.01em;
+  color: var(--foreground);
 }
 
+/* Hand-drawn container styling */
+.hand-drawn-container {
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  position: relative;
+  transform: rotate(0.2deg);
+}
+
+/* Hand-drawn box styling */
 .hand-drawn-box {
-  border: 2px solid #333;
+  border: 2px solid var(--foreground);
   border-radius: 8px;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 0px var(--box-shadow-color);
   transform: rotate(-0.3deg);
 }
 
@@ -43,22 +239,22 @@ body {
   left: -5px;
   right: -5px;
   bottom: -5px;
-  border: 1px solid #666;
+  border: 1px solid var(--border);
   border-radius: 12px;
   opacity: 0.3;
   z-index: -1;
 }
 
 .hand-drawn-circle {
-  border: 2px solid #333;
+  border: 2px solid var(--foreground);
   border-radius: 50%;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  box-shadow: 2px 2px 0px var(--box-shadow-color);
 }
 
 .hand-drawn-arrow {
-  border-top: 2px solid #333;
+  border-top: 2px solid var(--foreground);
   position: relative;
   transform: rotate(-0.5deg);
 }
@@ -72,43 +268,21 @@ body {
   height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-left: 12px solid #333;
-}
-
-.hand-drawn-container {
-  border: 2px dashed #999;
-  border-radius: 8px;
-  background-color: rgba(249, 250, 251, 0.5);
-  padding: 1rem;
-  position: relative;
-  transform: rotate(0.2deg);
+  border-left: 12px solid var(--foreground);
 }
 
 .hand-drawn-tag {
-  border: 1px solid #666;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  background-color: rgba(243, 244, 246, 0.7);
+  background-color: var(--secondary);
+  color: var(--foreground);
   display: inline-block;
   transform: rotate(-1deg);
-  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 0px var(--box-shadow-color);
   padding: 0.25rem 0.75rem;
 }
 
 /* Additional styles for better presentation */
 h1.hand-drawn-text, h2.hand-drawn-text {
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
-}
-
-.bg-blue-50, .bg-green-50, .bg-purple-50, .bg-amber-50 {
-  background-opacity: 0.7;
-}
-
-/* Animations for interactive elements */
-@keyframes gentle-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-.hand-drawn-box:hover, .hand-drawn-tag:hover {
-  animation: gentle-bounce 1s ease infinite;
 }
